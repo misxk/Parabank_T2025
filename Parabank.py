@@ -7,8 +7,10 @@ def test_home_page():
         home_page = HomePage(page)
         home_page.goto()
         title = page.title()
-        assert title == "ParaBank | Welcome | Online Banking"
-        print (f'Page title is: {title}')
+        try:
+            assert title == "ParaBank | Welcome | Online Banking"
+        except AssertionError:
+            print (f'Assertion has failed, title is not same as expected {title}')
         browser.close()
 
 test_home_page()

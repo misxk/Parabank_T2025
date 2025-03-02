@@ -1,12 +1,12 @@
 from playwright.sync_api import sync_playwright
-from HomePage import HomePage
+from Page.HomePage import HomePage
 
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=False)
     page = browser.new_page()
     home_page = HomePage(page)
     home_page.goto()
-    page.fill('[name="username"]', 'student')
+    page.fill('[name="username"]', 'xyz')
     page.fill('[name="password"]', 'MTEST25')
     page.click('text=Log In')
     page.wait_for_selector('h1', timeout= 5000)

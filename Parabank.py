@@ -1,4 +1,4 @@
-from HomePage import HomePage
+from Page.HomePage import HomePage
 from playwright.sync_api import sync_playwright
 def test_home_page():
     with sync_playwright() as p:

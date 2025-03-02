@@ -6,7 +6,7 @@ with sync_playwright() as p:
     page = browser.new_page()
     home_page = HomePage(page)
     home_page.goto()
-    page.fill('[name="username"]', 'xyz')
+    page.fill('[name="username"]', 'xyzxx')
     page.fill('[name="password"]', 'MTEST25')
     page.click('text=Log In')
     page.wait_for_selector('h1', timeout= 5000)

@@ -1,5 +1,5 @@
 from playwright.sync_api import sync_playwright
-from Page.HomePage import HomePage
+from classes.homepage import HomePage
 
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=False)

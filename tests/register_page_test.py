@@ -4,7 +4,6 @@ from classes.register_page import RegistrationPage
 from classes.homepage import HomePage
 from classes.driver import PlaywrightBrowser
 
-
 # Fixture to launch and close browser
 @pytest.fixture(scope="function")
 def browser():
@@ -12,7 +11,7 @@ def browser():
     browser.launch_browser()
     yield browser  # Returning the browser to tests
     browser.close_browser()  # After tests closing the browser
-# Registration test
+
 def test_to_check_if_user_can_register(browser):
     admin_page = AdminPage(browser.page)
     admin_page.goto()

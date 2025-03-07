@@ -16,4 +16,6 @@ class RegistrationPage():
         self.page.fill('[name="customer.password"]', 'MTEST25')
         self.page.fill('[name="repeatedPassword"]', 'MTEST25')
         self.page.click('input.button[value="Register"]')
-        self.page.wait_for_url('https://parabank.parasoft.com/parabank/register.htm')
+
+    def click_register_button(self):
+        self.page.click('input.button[value="Register"]')

@@ -9,6 +9,7 @@ def browser():
     yield browser  # Yield the browser instance to the test
     browser.close_browser()  # Close the browser after the test
 
+
 def test_home_page(browser):  # Use the browser fixture here
     home_page = HomePage(browser.page)  # pass browser.page to HomePage
     home_page.goto()  # navigate to the homepage

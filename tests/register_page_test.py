@@ -23,10 +23,12 @@ def test_to_check_if_user_can_register(browser):
 
     home_page = HomePage(browser.page)
     home_page.goto()
+
     # asserting if homepage is opened
     assert browser.page.url == 'https://parabank.parasoft.com/parabank/index.htm', 'Homepage is not opened.'
     register_page = RegistrationPage(browser.page)  # creating register page
     register_page.goto() # entering register page
+
     fake = Faker() # creating fake data
     register_page.page.fill('[name="customer.firstName"]', fake.first_name()) # filling the form with fake first name
     register_page.page.fill('[name="customer.lastName"]', fake.last_name()) # filling the form with fake last name

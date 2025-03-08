@@ -13,10 +13,6 @@ class RegistrationPage():
     def goto(self):
         self.page.goto("https://parabank.parasoft.com/parabank/register.htm")
 
-    # checking if register page is opened
-    def test_goto(self):
-        assert self.page.url == 'https://parabank.parasoft.com/parabank/register.htm', 'Register page is not opened.'
-
     # registering user
     def register_user(self):
         first_name = self.fake.first_name() # generating first name

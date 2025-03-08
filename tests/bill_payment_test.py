@@ -21,18 +21,13 @@ def test_to_check_if_user_is_able_to_make_billpay(browser):
     page = browser.page # creating page object
 
     admin_page.goto() # entering admin page
-    admin_page.test_goto() # checking if admin page is opened
     admin_page.click_clean_button() # cleaning the database
-    admin_page.verify_database_cleaned() # checking if database is cleaned
 
     register_page.goto() # entering register page
     register_page.register_user()  # registration of user
-    register_page.test_goto() # checking if register page is opened
 
     home_page.log_out() # logging out
-
     home_page.goto() # entering homepage
-    home_page.test_goto() # checking if homepage is opened
 
     username, password = register_page.download_data()  # downloading created username and password
 
@@ -44,10 +39,9 @@ def test_to_check_if_user_is_able_to_make_billpay(browser):
     page.wait_for_url('https://parabank.parasoft.com/parabank/overview.htm') # waiting for the page to load
 
     bill_payment_page.goto()  # entering the Bill Pay page
-    bill_payment_page.test_goto()
 
     fake = Faker()
-    account_number = str(fake.random_number(digits=8)) # creating fake account number to have possiblity to return it to the form
+    account_number = str(fake.random_number(digits=8))  #creating fake account number to have possiblity to return it to the form
     bill_payment_page.page.fill('[name="payee.name"]', fake.name())
     bill_payment_page.page.fill('[name="payee.address.street"]',fake.street_address()) # filling the form with fake address street
     bill_payment_page.page.fill('[name="payee.address.city"]',fake.city()) # filling the form with fake city

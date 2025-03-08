@@ -11,6 +11,9 @@ class BillPayPage:
         # entering the Bill Pay page
         self.page.goto("https://parabank.parasoft.com/parabank/billpay.htm")
 
+    def test_goto(self):
+        self.page.goto("https://parabank.parasoft.com/parabank/billpay.htm")
+        assert self.page.url == "https://parabank.parasoft.com/parabank/billpay.htm"
     def payee_information(self):
         # generating data for payee
         payee_name = self.fake.first_name() + ' ' + self.fake.last_name()

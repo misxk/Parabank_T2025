@@ -1,17 +1,16 @@
-'''Test if title of Parabank is correct'''
+import pytest
 from classes.homepage import HomePage
-from playwright.sync_api import sync_playwright
-def test_home_page():
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
-        page = browser.new_page()
-        home_page = HomePage(page)
-        home_page.goto()
-        title = page.title()
-        try:
-            assert title == "ParaBank | Welcome | Online Banking"
-        except AssertionError:
-            print (f'Assertion has failed, title is not same as expected')
-        browser.close()
+from classes.driver import PlaywrightBrowser
 
-test_home_page()
+@pytest.fixture(scope="function")
+def browser():
+    browser = PlaywrightBrowser()  # Create an instance of PlaywrightBrowser
+    browser.launch_browser()  # Launch the browser
+    yield browser  # Yield the browser instance to the test
+    browser.close_browser()  # Close the browser after the test
+
+def test_home_page(browser):  # Use the browser fixture here
+    home_page = HomePage(browser.page)  # pass browser.page to HomePage
+    home_page.goto()  # navigate to the homepage
+    title = browser.page.title()  # get the page title
+    assert title == 'ParaBank | Welcome | Online Banking', f'Homepage title is incorrect, expected "ParaBank | Welcome | Online Banking", but got {title}'

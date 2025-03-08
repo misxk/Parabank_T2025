@@ -2,20 +2,23 @@ from faker import Faker
 
 
 class RegistrationPage():
+    # initializing the class
     def __init__(self, page):
         self.page = page
         self.fake = Faker()
-        self.username = None  # Dodajemy zmienne do przechowywania danych
-        self.password = None
+        self.username = None  # adding variables to store generated data
+        self.password = None  # adding variables to store generated data
 
+    # opening the register page
     def goto(self):
         self.page.goto("https://parabank.parasoft.com/parabank/register.htm")
 
+    # checking if register page is opened
     def test_goto(self):
         assert self.page.url == 'https://parabank.parasoft.com/parabank/register.htm', 'Register page is not opened.'
 
+    # registering user
     def register_user(self):
-        # generating data
         first_name = self.fake.first_name() # generating first name
         last_name = self.fake.last_name() # generating last name
         address = self.fake.address().split('\n')[0] # generating address
@@ -37,13 +40,15 @@ class RegistrationPage():
         self.page.fill('[name="customer.phoneNumber"]', phone_number) # using generated phone number
         self.page.fill('[name="customer.ssn"]', ssn) # using generated ssn
         self.page.fill('[name="customer.username"]', self.username)  # using generated username
-        self.page.fill('[name="customer.password"]', self.password)  # using generated passsword
+        self.page.fill('[name="customer.password"]', self.password)  # using generated password
         self.page.fill('[name="repeatedPassword"]', self.password)  # repeat generated password
         self.page.click('input.button[value="Register"]') # clicking register button
 
+    # downloading created username and password
     def download_data(self):
         # returning generated data
         return self.username, self.password
 
+    # clicking register button
     def click_register_button(self):
         self.page.click('input.button[value="Register"]')

@@ -12,7 +12,7 @@ class RegistrationPage():
         self.page.goto("https://parabank.parasoft.com/parabank/register.htm")
 
     def register_user(self):
-        # Generowanie danych
+        # generating data
         first_name = self.fake.first_name()
         last_name = self.fake.last_name()
         address = self.fake.address().split('\n')[0]
@@ -24,7 +24,7 @@ class RegistrationPage():
         self.username = self.fake.user_name()  # Przechowywanie wygenerowanego username
         self.password = self.fake.password()  # Przechowywanie wygenerowanego password
 
-        # Wypełnianie formularza danymi
+        # filling the form
         self.page.fill('[name="customer.firstName"]', first_name)
         self.page.fill('[name="customer.lastName"]', last_name)
         self.page.fill('[name="customer.address.street"]', address)
@@ -39,7 +39,7 @@ class RegistrationPage():
         self.page.click('input.button[value="Register"]')
 
     def download_data(self):
-        # Zwracanie wygenerowanych danych (username, password)
+        # returning generated data
         return self.username, self.password
 
     def click_register_button(self):

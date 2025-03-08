@@ -1,9 +1,9 @@
 import pytest
-from classes.homepage import HomePage
-from classes.driver import PlaywrightBrowser
-from classes.register_page import RegistrationPage
-from classes.admin_page import AdminPage
-from classes.bill_payment_page import BillPayPage
+from pages.homepage import HomePage
+from pages.driver import PlaywrightBrowser
+from pages.register_page import RegistrationPage
+from pages.admin_page import AdminPage
+from pages.bill_payment_page import BillPayPage
 from faker import Faker
 @pytest.fixture(scope="function")
 def browser():

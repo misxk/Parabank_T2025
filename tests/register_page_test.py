@@ -19,7 +19,6 @@ def test_to_check_if_user_can_register(browser):
 
     admin_page = AdminPage(browser.page)
     admin_page.goto()
-    admin_page.click_admin_page()
     admin_page.click_clean_button()
 
     home_page = HomePage(browser.page)

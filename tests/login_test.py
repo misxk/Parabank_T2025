@@ -2,7 +2,6 @@ import pytest
 from pages.homepage import HomePage
 from pages.driver import PlaywrightBrowser
 from pages.register_page import RegistrationPage
-import time
 @pytest.fixture(scope="function")
 def browser():
     browser = PlaywrightBrowser()  # creating browser

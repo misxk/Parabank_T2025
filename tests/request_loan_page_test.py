@@ -1,10 +1,8 @@
 import pytest
-from pages.homepage import HomePage
 from pages.driver import PlaywrightBrowser
 from pages.register_page import RegistrationPage
 from pages.request_loan_page import Loan
 from faker import Faker
-import time
 @pytest.fixture(scope="function")
 def browser():
     browser = PlaywrightBrowser()  # creating browser

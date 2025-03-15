@@ -7,3 +7,5 @@ Website URL: https://parabank.parasoft.com/parabank/index.htm
 2. Test Case - Automate that user is able to login sucesfully. 
 3. Test Case - Check if Parabank URL is correct.
 4. Test Case - Automate bill payment
+5. Test Case - Automate Transfer Funds
+6. Test Case - Automate Request Loan

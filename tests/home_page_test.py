@@ -1,5 +1,5 @@
 import pytest
-from pages.home_page import HomePage
+from pages.HomePage import HomePage
 from pages.PlaywrightDriver import PlaywrightBrowser
 
 @pytest.fixture(scope="function")

@@ -1,7 +1,7 @@
 import pytest
 from pages.PlaywrightDriver import PlaywrightBrowser
-from pages.register_page import RegistrationPage
-from pages.request_loan_page import Loan
+from pages.RegisterPage import RegistrationPage
+from pages.RequestLoanPage import Loan
 from faker import Faker
 @pytest.fixture(scope="function")
 def browser():

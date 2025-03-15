@@ -1,7 +1,7 @@
 import pytest
 from faker import Faker
-from pages.register_page import RegistrationPage
-from pages.home_page import HomePage
+from pages.RegisterPage import RegistrationPage
+from pages.HomePage import HomePage
 from pages.PlaywrightDriver import PlaywrightBrowser
 
 # Fixture to launch and close browser

@@ -1,7 +1,7 @@
 import pytest
-from pages.home_page import HomePage
+from pages.HomePage import HomePage
 from pages.PlaywrightDriver import PlaywrightBrowser
-from pages.register_page import RegistrationPage
+from pages.RegisterPage import RegistrationPage
 @pytest.fixture(scope="function")
 def browser():
     browser = PlaywrightBrowser()  # creating browser

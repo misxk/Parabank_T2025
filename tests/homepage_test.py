@@ -4,13 +4,13 @@ from pages.driver import PlaywrightBrowser
 
 @pytest.fixture(scope="function")
 def browser():
-    browser = PlaywrightBrowser()  # Create an instance of PlaywrightBrowser
-    browser.launch_browser()  # Launch the browser
-    yield browser  # Yield the browser instance to the test
-    browser.close_browser()  # Close the browser after the test
+    browser = PlaywrightBrowser()  # create an instance of PlaywrightBrowser
+    browser.launch_browser()  # launch the browser
+    yield browser  # yield the browser instance to the test
+    browser.close_browser()  # close the browser after the test
 
 
-def test_home_page(browser):  # Use the browser fixture here
+def test_home_page(browser):  # use the browser fixture here
     home_page = HomePage(browser.page)  # pass browser.page to HomePage
     home_page.goto()  # navigate to the homepage
     title = browser.page.title()  # get the page title

@@ -1,18 +1,24 @@
 from playwright.sync_api import Page
 
+
 class AdminPage:
-    # Initializing the admin page
+    # initializing the admin page
     def __init__(self, page: Page):
         self.page = page
 
-    # Entering the admin page
+    # entering the admin page
     def goto(self):
         # Entering the admin page
         self.page.goto("https://parabank.parasoft.com/parabank/admin.htm")
 
-    # Cleaning the database
+    # cleaning the database and verifying the success message
     def click_clean_button(self):
-        self.page.click("button:has-text('Clean')") # Click the "Clean" button on the admin page
+        # click the "Clean" button on the admin page
+        self.page.click("button:has-text('Clean')")
+        # wait for the "Database Cleaned" text to appear (using XPath)
+        self.page.wait_for_selector('xpath=//*[@id="rightPanel"]/p/b', timeout=5000)  # Timeout after 5 seconds
+
+
 
 
 

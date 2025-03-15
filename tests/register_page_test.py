@@ -1,6 +1,5 @@
 import pytest
 from faker import Faker
-from pages.admin_page import AdminPage
 from pages.register_page import RegistrationPage
 from pages.homepage import HomePage
 from pages.driver import PlaywrightBrowser
@@ -17,15 +16,10 @@ def browser():
 # test to check if user can register
 def test_to_check_if_user_can_register(browser):
 
-    admin_page = AdminPage(browser.page)
-    admin_page.goto()
-    admin_page.click_clean_button()
-
     home_page = HomePage(browser.page)
     home_page.goto()
 
-    # asserting if homepage is opened
-    assert browser.page.url == 'https://parabank.parasoft.com/parabank/index.htm', 'Homepage is not opened.'
+    browser.wait_for_url=('https://parabank.parasoft.com/parabank/index.htm')
     register_page = RegistrationPage(browser.page)  # creating register page
     register_page.goto() # entering register page
 

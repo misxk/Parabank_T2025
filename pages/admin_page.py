@@ -15,8 +15,8 @@ class AdminPage:
     def click_clean_button(self):
         # click the "Clean" button on the admin page
         self.page.click("button:has-text('Clean')")
-        # wait for the "Database Cleaned" text to appear (using XPath)
-        self.page.wait_for_selector('xpath=//*[@id="rightPanel"]/p/b', timeout=5000)  # Timeout after 5 seconds
+        # wait for the "Database Cleaned" text to appear
+        self.page.wait_for_selector('xpath=//*[@id="rightPanel"]/p/b', timeout= 5000)
 
 
 

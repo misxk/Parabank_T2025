@@ -1,8 +1,8 @@
 import pytest
 from faker import Faker
 from pages.register_page import RegistrationPage
-from pages.homepage import HomePage
-from pages.driver import PlaywrightBrowser
+from pages.home_page import HomePage
+from pages.PlaywrightDriver import PlaywrightBrowser
 
 # Fixture to launch and close browser
 @pytest.fixture(scope="function")

@@ -1,5 +1,5 @@
 import pytest
-from pages.driver import PlaywrightBrowser
+from pages.PlaywrightDriver import PlaywrightBrowser
 from pages.register_page import RegistrationPage
 from pages.request_loan_page import Loan
 from faker import Faker

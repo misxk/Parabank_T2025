@@ -20,10 +20,12 @@ def test_to_check_if_user_can_register(browser):
     home_page.goto()
 
     browser.wait_for_url=('https://parabank.parasoft.com/parabank/index.htm')
+
     register_page = RegistrationPage(browser.page)  # creating register page
     register_page.goto() # entering register page
 
     fake = Faker() # creating fake data
+
     register_page.page.fill('[name="customer.firstName"]', fake.first_name()) # filling the form with fake first name
     register_page.page.fill('[name="customer.lastName"]', fake.last_name()) # filling the form with fake last name
     register_page.page.fill('[name="customer.address.street"]', fake.street_address()) # filling the form with fake address street
@@ -37,6 +39,7 @@ def test_to_check_if_user_can_register(browser):
     register_page.page.fill('[name="customer.password"]', password) # filling the form with fake password
     register_page.page.fill('[name="repeatedPassword"]', password) # repeating the password
     register_page.click_register_button() # clicking register button
+
     # asserting if register page is opened
     assert browser.page.url == 'https://parabank.parasoft.com/parabank/register.htm', 'Register page is not opened.'
     # waiting for the page to load

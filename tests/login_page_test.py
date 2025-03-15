@@ -10,17 +10,16 @@ def browser():
     browser.close_browser()  # closing browser
 
 def test_to_check_if_user_can_login(browser):
-    # creating objects
-    home_page = HomePage(browser.page) # creating homepage object
-    register_page = RegistrationPage(browser.page)  # creating register page object
     page = browser.page # creating page object
 
+    register_page = RegistrationPage(browser.page)  # creating register page object
     register_page.goto() # entering register page
     register_page.register_user()  # registration of user
 
+    home_page = HomePage(browser.page)  # creating homepage object
     home_page.log_out() # logging out
 
-    username, password = register_page.download_data()  # downloading created username and password
+    username, password = register_page.get_username_and_password()  # downloading created username and password
 
     page.fill('[name="username"]', username)  # using generated username
     page.fill('[name="password"]', password)  # using generated password

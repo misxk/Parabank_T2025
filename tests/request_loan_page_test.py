@@ -7,18 +7,17 @@ from faker import Faker
 def browser():
     browser = PlaywrightBrowser()  # creating browser
     browser.launch_browser()  # launching browser
-    yield browser  # Returning the browser to tests
+    yield browser  # returning the browser to tests
     browser.close_browser()  # closing browser
 
 def test_to_check_if_user_is_able_request_loan(browser):
-    # creating objects
-    register_page = RegistrationPage(browser.page)
     page = browser.page
-    request_loan_page = Loan(page)
 
+    register_page = RegistrationPage(browser.page)
     register_page.goto()  # entering register page
     register_page.register_user()  # registration of user
 
+    request_loan_page = Loan(page)
     request_loan_page.goto() # entering the request loan page
 
     faker = Faker() # creating faker
@@ -29,7 +28,7 @@ def test_to_check_if_user_is_able_request_loan(browser):
     down_payment = page.locator('[id="downPayment"]') # using locator to find the field
     down_payment.fill(str(faker.random_number(digits=5))) # using random number to fill the field
 
-    request_loan_page.apply_now() # applying for the loan
+    request_loan_page.click_apply_now_button() # applying for the loan
 
     page.wait_for_url('https://parabank.parasoft.com/parabank/requestloan.htm') # waiting for the page to load
 

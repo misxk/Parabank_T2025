@@ -1,6 +1,8 @@
 from faker import Faker
 
+
 class Loan:
+
     # initializing the class
     def __init__(self, page):
         self.page = page
@@ -21,5 +23,5 @@ class Loan:
         self.page.locator('input[id="downPayment"]').fill(payment)
 
     # requesting loan
-    def apply_now(self):
+    def click_apply_now_button(self):
         self.page.click('input.button[value="Apply Now"]')

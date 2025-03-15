@@ -7,6 +7,7 @@ class HomePage:
     def goto(self):
         self.page.goto("https://parabank.parasoft.com/parabank/index.htm")
         self.page.wait_for_selector('input[value="Log In"]', timeout= 10000)
+
     # log out
     def log_out(self):
         self.page.click('text=Log Out')

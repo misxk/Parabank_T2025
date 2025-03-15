@@ -8,5 +8,5 @@ class Transfer:
         self.page.goto("https://parabank.parasoft.com/parabank/transfer.htm")
 
     # transfering funds
-    def transfer_funds(self):
+    def click_transfer_funds_button(self):
         self.page.click('input.button[value="Transfer"]')

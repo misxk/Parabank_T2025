@@ -41,7 +41,7 @@ class RegistrationPage():
         self.page.click('input.button[value="Register"]') # clicking register button
 
     # downloading created username and password
-    def download_data(self):
+    def get_username_and_password(self):
         # returning generated data
         return self.username, self.password
 

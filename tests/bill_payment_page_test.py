@@ -11,17 +11,19 @@ def browser():
     yield browser  # Returning the browser to tests
     browser.close_browser()  # closing browser
 
+
 def test_to_check_if_user_is_able_to_make_billpay(browser):
     # creating objects
     register_page = RegistrationPage(browser.page)  # creating register page object
-    bill_payment_page = BillPayPage(browser.page)
 
     register_page.goto() # entering register page
     register_page.register_user()  # registration of user
 
+    bill_payment_page = BillPayPage(browser.page)
     bill_payment_page.goto()  # entering the Bill Pay page
 
     fake = Faker()
+
     account_number = str(fake.random_number(digits=8))  #creating fake account number to have possiblity to return it to the form
     bill_payment_page.page.fill('[name="payee.name"]', fake.name())
     bill_payment_page.page.fill('[name="payee.address.street"]',fake.street_address()) # filling the form with fake address street
